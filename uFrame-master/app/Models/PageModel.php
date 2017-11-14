@@ -1,6 +1,6 @@
 <?php
 
-class Post
+class PageModel
 {
 
     private $db;
@@ -11,9 +11,9 @@ class Post
     }
 
     // Get single post ( [0]'st element from results array)
-    public function getPost(string $id): array
+    public function getPage(string $title): array
     {
-        return $this->db->select("SELECT * FROM posts WHERE id = :id", ["id" => $id])[0];
+        return $this->db->select("SELECT * FROM pages WHERE title = :title", ["title" => $title])[0];
     }
 
     // Get all posts

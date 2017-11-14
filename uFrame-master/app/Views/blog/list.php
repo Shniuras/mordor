@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <title><?= $data['page']['title'] . " | " . CONFIG['site_title']; ?></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/<?= CONFIG['site_path']; ?>/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/<?= CONFIG['site_path']; ?>/assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/<?= CONFIG['site_path']; ?>/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/<?= CONFIG['site_path']; ?>/assets/css/style.css">
 </head>
 <body>
 <div class="container-fluid header">
@@ -20,13 +20,19 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col content">
-                <h2><?= $data['page']['title']; ?></h2>
-                <hr>
-				<?= $data['page']['body']; ?>
+        <?php
+            foreach ($data['postList'] as $post){
+        ?>
+            <div class="row">
+                <div class="col content">
+                    <h2><?= $post['title']; ?></h2>
+                    <hr>
+                    <?= $post['body']; ?>
+                </div>
             </div>
-        </div>
+        <?php
+            }
+        ?>
     </div>
 </div>
 <script src="/<?= CONFIG['site_path']; ?>/assets/js/script.js"></script>
